@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 userType = documentSnapshot.getString("userType");
                                 schoolId = documentSnapshot.getString("schoolId");
-                                Log.d("User Data", "User type is " + userType + schoolId);
+                                Log.d("User Data", "User type is " + userType +"  "+ schoolId);
                                 Toast.makeText(LoginActivity.this, "GETTING", Toast.LENGTH_SHORT).show();
                             }
                         })
