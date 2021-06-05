@@ -1,0 +1,2 @@
+rootProject.name = "School Bus Tracking System"
+include ':app'

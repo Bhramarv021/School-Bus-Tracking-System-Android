@@ -1,0 +1,105 @@
+{
+  "project_info": {
+    "project_number": "618915197110",
+    "project_id": "studentbustracking-8c643",
+    "storage_bucket": "studentbustracking-8c643.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618915197110:android:f69ecb4eb6247df285f617",
+        "android_client_info": {
+          "package_name": "com.example.myfirestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618915197110-c0bl73j2g38epb48gsqcek1dshk7u10u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myfirestore",
+            "certificate_hash": "12ae745eff04421496daacb0d2787d768413d92c"
+          }
+        },
+        {
+          "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8TI78mb3MHQA_heFwbnupcWUREDzvENA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618915197110:android:7c254298a466117e85f617",
+        "android_client_info": {
+          "package_name": "com.example.schoolbus_tracking_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8TI78mb3MHQA_heFwbnupcWUREDzvENA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618915197110:android:22ffa134632dafd385f617",
+        "android_client_info": {
+          "package_name": "com.example.schoolbustrackingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8TI78mb3MHQA_heFwbnupcWUREDzvENA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618915197110-5qbcv6r2l0asi5cqssa9ok6v9fih1t6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
