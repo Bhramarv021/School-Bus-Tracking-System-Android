@@ -11,9 +11,12 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/view5"
@@ -21,6 +24,7 @@
         android:layout_height="100dp"
         android:background="@drawable/wave"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topView" />
 
@@ -29,9 +33,9 @@
         android:layout_width="351dp"
         android:layout_height="168dp"
         android:layout_marginStart="32dp"
-        android:gravity="center_horizontal"
-        android:text="Welcome \nto \nSchool Bus Tracking System"
         android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Welcome \nTo \nSchool Bus Tracking System"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -40,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/topView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.028"
         tools:ignore="HardcodedText" />
 
     <EditText
@@ -58,17 +62,18 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view5"
-        app:layout_constraintVertical_bias="0.07"
+        app:layout_constraintVertical_bias="0.128"
         tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="349dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="344dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
         android:drawableStart="@drawable/ic_lock"
         android:drawablePadding="16dp"
@@ -78,16 +83,18 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topView"
-        app:layout_constraintVertical_bias="0.092" />
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+        app:layout_constraintVertical_bias="0.076" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="257dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="80dp"
+        android:paddingEnd="80dp"
+        android:gravity="center"
         android:background="@drawable/round_bg"
         android:text="Login"
         android:textColor="@android:color/white"
@@ -97,8 +104,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711"
+        app:layout_constraintTop_toBottomOf="@+id/inputPassword"
+        app:layout_constraintVertical_bias="0.144"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -107,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="140dp"
+        android:gravity="center"
         android:text="Forgot Password"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
@@ -115,19 +122,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.127"
         tools:ignore="HardcodedText" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
+        android:foregroundGravity="center"
         android:layout_width="57dp"
         android:layout_height="63dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.914" />
-
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
