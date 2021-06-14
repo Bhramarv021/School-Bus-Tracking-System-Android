@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".student_Detail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@color/colorPrimary"
+            android:text="BACK" />
+
+
+        <TextView
+            android:id="@+id/stdname"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:hint=" Name " />
+
+        <TextView
+            android:id="@+id/rllno"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint=" Roll no" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Address" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="City" />
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="State" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Country" />
+
+        <TextView
+            android:id="@+id/PnD"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Pick and Drop" />
+
+        <TextView
+            android:id="@+id/parentname"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Parent Name" />
+
+        <TextView
+            android:id="@+id/parentno"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Parent Conatact No." />
+
+        <TextView
+            android:id="@+id/parentemail"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="ParentEmail" />
+
+        <TextView
+            android:id="@+id/busroute"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Bus Route" />
+
+        <TextView
+            android:id="@+id/busno"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Bus Number" />
+
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/adrs"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Address" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/city"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="City" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/state"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="State" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/country"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Country" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/pickdrop"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="PickUp/Drop Location" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/prntname"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Parent Name" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/prntno"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Parent Contact No" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/prntemail"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Parent Email" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/busrte"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Bus Route" />-->
+
+    <!--        <EditText-->
+    <!--            android:id="@+id/busno"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginTop="15dp"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="Bus Number" />-->

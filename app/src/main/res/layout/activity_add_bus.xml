@@ -13,11 +13,11 @@
         android:layout_width="370dp"
         android:layout_height="39dp"
         android:text="Fill The Form"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:textColor="@color/black"
-        />
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:layout_width="match_parent"
