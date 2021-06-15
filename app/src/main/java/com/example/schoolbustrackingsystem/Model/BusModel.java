@@ -8,6 +8,10 @@ public class BusModel {
     String driverContactNumber;
     String driverName;
 
+    public BusModel(){
+
+    }
+
     public BusModel(String busNumber,
                     String busRegistrationNumber,
                     String busRouteNumber,

@@ -8,10 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.schoolbustrackingsystem.adapter.ViewBusAdapter;
 import com.example.schoolbustrackingsystem.addmodule.AddStudentActivity;
 import com.example.schoolbustrackingsystem.addmodule.AddBusActivity;
 import com.example.schoolbustrackingsystem.addmodule.AddBusAttendantActivity;
 
+import com.example.schoolbustrackingsystem.viewmodule.ViewBusActivity;
+import com.example.schoolbustrackingsystem.viewmodule.ViewBusAttendantActivity;
+import com.example.schoolbustrackingsystem.viewmodule.ViewStudentActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class SchoolHomeActivity extends AppCompatActivity {
@@ -70,7 +74,10 @@ public class SchoolHomeActivity extends AppCompatActivity {
         viewStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intentToViewStudent = new Intent(SchoolHomeActivity.this, ViewStudentActivity.class);
+                intentToViewStudent.putExtra("schoolId", schoolId);
+//                intentToViewStudent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentToViewStudent);
             }
         });
 
@@ -88,7 +95,10 @@ public class SchoolHomeActivity extends AppCompatActivity {
         viewBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intentToViewBus = new Intent(SchoolHomeActivity.this, ViewBusActivity.class);
+                intentToViewBus.putExtra("schoolId", schoolId);
+//                intentToViewStudent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentToViewBus);
             }
         });
 
@@ -106,7 +116,10 @@ public class SchoolHomeActivity extends AppCompatActivity {
         viewBusAttendant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intentToViewBusAttendant = new Intent(SchoolHomeActivity.this, ViewBusAttendantActivity.class);
+                intentToViewBusAttendant.putExtra("schoolId", schoolId);
+//                intentToViewStudent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentToViewBusAttendant);
             }
         });
 
