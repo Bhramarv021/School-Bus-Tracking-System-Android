@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    tools:context=".addmodule.AddStudentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Add Student"
+            android:textColor="@color/black"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/studentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:hint="Enter name "
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentRollNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Enter Roll no"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/studentAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Address"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="City"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="State"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Country"
+            android:inputType="text" />
+
+        <ProgressBar
+            android:id="@+id/progressBarForAddStudent"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:visibility="invisible"
+            android:layout_gravity="center_horizontal"/>
+
+        <EditText
+            android:id="@+id/studentPicDropLoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:gravity="center"
+            android:hint="PickUp/Drop Location"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentParentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Parent/Guardian Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentParentContactNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Parent Contact No"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentParentEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Parent Email"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/studentParentPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Set Login Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/studentBusRouteNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Bus Route"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/studentBusNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:hint="Bus Number"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnSubmitStudentDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Submit Details" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolBusTrackingSystem">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".viewmodule.ViewBusAttendantActivity"></activity>
+        <activity android:name=".addmodule.AddBusAttendantActivity" />
+        <activity android:name=".viewmodule.ViewStudentActivity" />
+        <activity android:name=".addmodule.AddStudentActivity" />
+        <activity android:name=".viewmodule.ViewBusActivity" />
+        <activity android:name=".addmodule.AddBusActivity" />
+        <activity android:name=".BusAttendantActivity" />
+        <activity android:name=".ParentActivity" />
+        <activity android:name=".SchoolHomeActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
