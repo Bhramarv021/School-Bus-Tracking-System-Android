@@ -196,18 +196,19 @@ public class LoginActivity extends AppCompatActivity {
                             if (userType.equals("BusAttendant")) {
                                 Toast.makeText(LoginActivity.this, "Welcome " + userEmail.getText().toString(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.INVISIBLE);
-                                Intent schoolIntent = new Intent(LoginActivity.this, BusAttendantActivity.class);
-                                schoolIntent.putExtra("enteredSchoolId", schoolId);
-                                startActivity(schoolIntent);
+                                Intent busAttendantIntent = new Intent(LoginActivity.this, BusAttendantActivity.class);
+                                busAttendantIntent.putExtra("enteredSchoolId", schoolId);
+                                busAttendantIntent.putExtra("attendantsLoginId",mUserEmail);
+                                startActivity(busAttendantIntent);
                                 finish();
                             }
 
                             if (userType.equals("Parent")) {
                                 Toast.makeText(LoginActivity.this, "Welcome " + userEmail.getText().toString(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.INVISIBLE);
-                                Intent schoolIntent = new Intent(LoginActivity.this, ParentActivity.class);
-                                schoolIntent.putExtra("enteredSchoolId", schoolId);
-                                startActivity(schoolIntent);
+                                Intent parentIntent = new Intent(LoginActivity.this, ParentActivity.class);
+                                parentIntent.putExtra("enteredSchoolId", schoolId);
+                                startActivity(parentIntent);
                                 finish();
                             }
 
