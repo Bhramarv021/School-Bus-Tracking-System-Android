@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.schoolbustrackingsystem.Model.BusAttendantLiveLocationModel;
 import com.example.schoolbustrackingsystem.Model.BusAttendantModel;
+import com.example.schoolbustrackingsystem.Model.StudentModel;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -46,6 +47,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BusAttendantActivity extends AppCompatActivity {
 
     private static final String TAG = "BusAttendantActivity";
@@ -63,16 +67,21 @@ public class BusAttendantActivity extends AppCompatActivity {
 
     String schoolId;
     String attendantEmail;
+    String attendantId;
+
+    ArrayList<BusAttendantModel> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_attendant);
 
+        arrayList = new ArrayList<>();
+
         Intent intent = getIntent();
         schoolId = intent.getStringExtra("enteredSchoolId");
         attendantEmail = intent.getStringExtra("attendantsLoginId");
-        Log.d(TAG, "School id through intent is : "+schoolId+" Attendant login id is : "+attendantEmail);
+        Log.d(TAG, "School id through intent is : " + schoolId + " Attendant login id is : " + attendantEmail);
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.attendantMapsFragment);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(BusAttendantActivity.this);
@@ -91,45 +100,48 @@ public class BusAttendantActivity extends AppCompatActivity {
         }
     }
 
-    private void getUserDetails(){
-        if (busAttendantLiveLocationModel == null){
+    private void getUserDetails() {
+        if (busAttendantLiveLocationModel == null) {
             busAttendantLiveLocationModel = new BusAttendantLiveLocationModel();
 
-            DocumentReference attendantRef = mFirebaseFirestore.collection("Schools")
+            mFirebaseFirestore.collection("Schools")
                     .document(schoolId)
-                    .collection("BusAttendents")
-                    .document(attendantEmail);
-
-
-                    attendantRef.get()
-                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    .collection("BusAttendant")
+                    .get()
+                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                         @Override
-                        public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()){
-                                Log.d(TAG, "Successfully get the attendant details");
-
-                                BusAttendantModel busAttendantModel = task.getResult().toObject(BusAttendantModel.class);
-                                busAttendantLiveLocationModel.setBusAttendantModel(busAttendantModel);
+                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                            for (DocumentSnapshot d : list) {
+                                BusAttendantModel busAttendantModel = d.toObject(BusAttendantModel.class);
+                                arrayList.add(busAttendantModel);
+                                Log.d(TAG, busAttendantModel.getAttendantId());
                                 getCurrentLocation();
+                                if (busAttendantModel.getEmailId().equals(attendantEmail)) {
+                                    busAttendantLiveLocationModel.setBusAttendantModel(busAttendantModel);
+                                    attendantId = busAttendantModel.getAttendantId();
+                                    getCurrentLocation();
+                                    Log.d(TAG, "Email match found " + busAttendantModel.getEmailId());
+                                }
                             }
                         }
                     });
         }
     }
 
-    private void saveUserLocation(){
+    private void saveUserLocation() {
 
-        if (busAttendantLiveLocationModel != null){
+        if (busAttendantLiveLocationModel != null) {
             DocumentReference documentReference = mSchoolCollectionReference
-                    .document(FirebaseAuth.getInstance().getUid());
+                    .document(attendantId);
 
             documentReference.set(busAttendantLiveLocationModel)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Void> task) {
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Log.d(TAG, "Successfully bus Attendant Live Location Data inserted");
-                                Log.d(TAG, "savedUserLocation : "+ "Lat : "+
+                                Log.d(TAG, "savedUserLocation : " + "Lat : " +
                                         busAttendantLiveLocationModel.getGeoPoint().getLatitude() + " Long : " +
                                         busAttendantLiveLocationModel.getGeoPoint().getLongitude());
                             }
@@ -165,7 +177,7 @@ public class BusAttendantActivity extends AppCompatActivity {
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location != null){
+                if (location != null) {
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
@@ -188,7 +200,7 @@ public class BusAttendantActivity extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e(TAG, "Fail to get last location "+e.getMessage());
+                Log.e(TAG, "Fail to get last location " + e.getMessage());
             }
         });
 
@@ -204,9 +216,9 @@ public class BusAttendantActivity extends AppCompatActivity {
 //        });
     }
 
-    private boolean checkMapServices(){
-        if(isServicesOK()){
-            if(isMapsEnabled()){
+    private boolean checkMapServices() {
+        if (isServicesOK()) {
+            if (isMapsEnabled()) {
                 return true;
             }
         }
@@ -215,32 +227,31 @@ public class BusAttendantActivity extends AppCompatActivity {
 
     // Called by checkMapServices() method to check the services
     // To check google play services is installed on device
-    public boolean isServicesOK(){
+    public boolean isServicesOK() {
         Log.d(TAG, "isServicesOK: checking google services version");
 
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(BusAttendantActivity.this);
 
-        if(available == ConnectionResult.SUCCESS){
+        if (available == ConnectionResult.SUCCESS) {
             //everything is fine and the user can make map requests
             Log.d(TAG, "isServicesOK: Google Play Services is working");
             return true;
-        }
-        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
             //an error occurred but we can resolve it
             Log.d(TAG, "isServicesOK: an error occurred but we can fix it");
             Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(BusAttendantActivity.this, available, ERROR_DIALOG_REQUEST);
             dialog.show();
-        }else{
+        } else {
             Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
         }
         return false;
     }
 
     // To check GPS is enabled on device
-    public boolean isMapsEnabled(){
-        final LocationManager manager = (LocationManager) getSystemService( Context.LOCATION_SERVICE );
+    public boolean isMapsEnabled() {
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps();
             return false;
         }
@@ -313,18 +324,4 @@ public class BusAttendantActivity extends AppCompatActivity {
             }
         }
     }
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           @NonNull String[] permissions,
-//                                           @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == REQUEST_CODE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                getCurrentLocation();
-//            } else {
-//                Toast.makeText(BusAttendantActivity.this, "Permission Denied", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 }
