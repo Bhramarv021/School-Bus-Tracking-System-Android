@@ -93,7 +93,7 @@ public class BusAttendantActivity extends AppCompatActivity {
 
         if (checkMapServices()) {
             if (ismLocationPermissionGranted) {
-                getCurrentLocation();
+                getLastKnownLocation();
             } else {
                 getLocationPermission();
             }
@@ -116,16 +116,18 @@ public class BusAttendantActivity extends AppCompatActivity {
                                 BusAttendantModel busAttendantModel = d.toObject(BusAttendantModel.class);
                                 arrayList.add(busAttendantModel);
                                 Log.d(TAG, busAttendantModel.getAttendantId());
-                                getCurrentLocation();
+//                                getCurrentLocation();
                                 if (busAttendantModel.getEmailId().equals(attendantEmail)) {
                                     busAttendantLiveLocationModel.setBusAttendantModel(busAttendantModel);
                                     attendantId = busAttendantModel.getAttendantId();
-                                    getCurrentLocation();
+                                    getLastKnownLocation();
                                     Log.d(TAG, "Email match found " + busAttendantModel.getEmailId());
                                 }
                             }
                         }
                     });
+        } else {
+            getLastKnownLocation();
         }
     }
 
@@ -157,7 +159,7 @@ public class BusAttendantActivity extends AppCompatActivity {
     }
 
     @SuppressLint("MissingPermission")
-    private void getCurrentLocation() {
+    private void getLastKnownLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED
