@@ -13,6 +13,7 @@ import com.example.schoolbustrackingsystem.addmodule.AddStudentActivity;
 import com.example.schoolbustrackingsystem.addmodule.AddBusActivity;
 import com.example.schoolbustrackingsystem.addmodule.AddBusAttendantActivity;
 
+import com.example.schoolbustrackingsystem.viewmodule.ViewAllBusesActivity;
 import com.example.schoolbustrackingsystem.viewmodule.ViewBusActivity;
 import com.example.schoolbustrackingsystem.viewmodule.ViewBusAttendantActivity;
 import com.example.schoolbustrackingsystem.viewmodule.ViewStudentActivity;
@@ -26,6 +27,7 @@ public class SchoolHomeActivity extends AppCompatActivity {
     Button viewBus;
     Button addBusAttendant;
     Button viewBusAttendant;
+    Button viewAllBusesLocation;
     Button signOut;
 
     String schoolId;
@@ -42,6 +44,7 @@ public class SchoolHomeActivity extends AppCompatActivity {
 
         addBus = findViewById(R.id.btnAddBus);
         viewBus = findViewById(R.id.btnViewBus);
+        viewAllBusesLocation = findViewById(R.id.allBusesLocation);
 
         addBusAttendant = findViewById(R.id.btnAddBusAttendant);
         viewBusAttendant = findViewById(R.id.btnViewBusAttendant);
@@ -99,6 +102,15 @@ public class SchoolHomeActivity extends AppCompatActivity {
                 intentToViewBus.putExtra("schoolId", schoolId);
 //                intentToViewStudent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentToViewBus);
+            }
+        });
+
+        viewAllBusesLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentToViewAllBusesLocation = new Intent(SchoolHomeActivity.this, ViewAllBusesActivity.class);
+                intentToViewAllBusesLocation.putExtra("schoolId", schoolId);
+                startActivity(intentToViewAllBusesLocation);
             }
         });
 
