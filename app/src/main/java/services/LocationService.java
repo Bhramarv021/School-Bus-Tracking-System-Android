@@ -43,6 +43,9 @@ public class LocationService extends Service {
     private final static long UPDATE_INTERVAL = 4 * 1000;  /* 4 secs */
     private final static long FASTEST_INTERVAL = 2000; /* 2 sec */
 
+    String schoolId;
+    String attendantId;
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -119,9 +122,6 @@ public class LocationService extends Service {
     private void saveUserLocation(final BusAttendantLiveLocationModel userLocation) {
 
         try {
-
-            String schoolId = "St_Xaviers_02";
-            String attendantId = "shehensha_003";
 
             DocumentReference locationRef = FirebaseFirestore
                     .getInstance()
