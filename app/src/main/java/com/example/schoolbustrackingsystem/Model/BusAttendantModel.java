@@ -1,6 +1,9 @@
 package com.example.schoolbustrackingsystem.Model;
 
-public class BusAttendantModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BusAttendantModel implements Parcelable {
 
     String attendantId;
     String busNumber;
@@ -26,6 +29,27 @@ public class BusAttendantModel {
         this.name = name;
         this.routeNumber = routeNumber;
     }
+
+    protected BusAttendantModel(Parcel in) {
+        attendantId = in.readString();
+        busNumber = in.readString();
+        contactNumber = in.readString();
+        emailId = in.readString();
+        name = in.readString();
+        routeNumber = in.readString();
+    }
+
+    public static final Creator<BusAttendantModel> CREATOR = new Creator<BusAttendantModel>() {
+        @Override
+        public BusAttendantModel createFromParcel(Parcel in) {
+            return new BusAttendantModel(in);
+        }
+
+        @Override
+        public BusAttendantModel[] newArray(int size) {
+            return new BusAttendantModel[size];
+        }
+    };
 
     public String getAttendantId() {
         return attendantId;
@@ -81,5 +105,20 @@ public class BusAttendantModel {
 
     public void setRouteNumber(String routeNumber) {
         this.routeNumber = routeNumber;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(attendantId);
+        dest.writeString(busNumber);
+        dest.writeString(contactNumber);
+        dest.writeString(emailId);
+        dest.writeString(name);
+        dest.writeString(routeNumber);
     }
 }

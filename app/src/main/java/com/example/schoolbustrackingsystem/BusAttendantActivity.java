@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -49,6 +50,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import services.LocationService;
 
 public class BusAttendantActivity extends AppCompatActivity {
 
@@ -98,6 +101,32 @@ public class BusAttendantActivity extends AppCompatActivity {
                 getLocationPermission();
             }
         }
+    }
+
+    private void startLocationService(){
+        if(!isLocationServiceRunning()){
+            Intent serviceIntent = new Intent(this, LocationService.class);
+//        this.startService(serviceIntent);
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O){
+
+                BusAttendantActivity.this.startForegroundService(serviceIntent);
+            }else{
+                startService(serviceIntent);
+            }
+        }
+    }
+
+    private boolean isLocationServiceRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
+            if("com.example.schoolbustrackingsystem.services.LocationService".equals(service.service.getClassName())) {
+                Log.d(TAG, "isLocationServiceRunning: location service is already running.");
+                return true;
+            }
+        }
+        Log.d(TAG, "isLocationServiceRunning: location service is not running.");
+        return false;
     }
 
     private void getUserDetails() {
@@ -195,6 +224,7 @@ public class BusAttendantActivity extends AppCompatActivity {
                             busAttendantLiveLocationModel.setGeoPoint(geoPoint);
                             busAttendantLiveLocationModel.setTimestamp(null);
                             saveUserLocation();
+                            startLocationService();
                         }
                     });
                 }
