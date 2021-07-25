@@ -90,7 +90,7 @@ public class AddBusAttendantActivity extends AppCompatActivity {
                 String name = attendantName.getText().toString();
                 String busAttendantId = attendantId.getText().toString();
                 String contactNumber = attendantContactNumber.getText().toString();
-                String routeNumber = attendantContactNumber.getText().toString();
+                String routeNumber = attendantRouteNumber.getText().toString();
                 String busNumber = attendantBusNumber.getText().toString();
                 String email = attendantEmail.getText().toString();
                 String pass = attendantPass.getText().toString();
