@@ -13,6 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Mark Attendance" />
 
+    <Button
+        android:id="@+id/btnShowRoute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Route" />
+
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

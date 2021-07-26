@@ -207,6 +207,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Welcome " + userEmail.getText().toString(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.INVISIBLE);
                                 Intent parentIntent = new Intent(LoginActivity.this, ParentActivity.class);
+                                parentIntent.putExtra("parentEmail", mUserEmail);
                                 parentIntent.putExtra("enteredSchoolId", schoolId);
                                 startActivity(parentIntent);
                                 finish();

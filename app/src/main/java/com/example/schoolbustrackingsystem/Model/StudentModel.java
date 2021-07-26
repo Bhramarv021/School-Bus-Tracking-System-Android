@@ -12,7 +12,7 @@ public class StudentModel {
     String parentName;
     String parentContactNumber;
     String parentEmail;
-    String busRoute;
+    String routeNumber;
     String busNumber;
 
     public StudentModel() {
@@ -28,7 +28,7 @@ public class StudentModel {
                         String parentName,
                         String parentContactNumber,
                         String parentEmail,
-                        String busRoute,
+                        String routeNumber,
                         String busNumber) {
         this.studentName = studentName;
         this.rollNo = rollNo;
@@ -40,7 +40,7 @@ public class StudentModel {
         this.parentName = parentName;
         this.parentContactNumber = parentContactNumber;
         this.parentEmail = parentEmail;
-        this.busRoute = busRoute;
+        this.routeNumber = routeNumber;
         this.busNumber = busNumber;
     }
 
@@ -124,12 +124,12 @@ public class StudentModel {
         this.parentEmail = parentEmail;
     }
 
-    public String getBusRoute() {
-        return busRoute;
+    public String getRouteNumber() {
+        return routeNumber;
     }
 
     public void setBusRoute(String busRoute) {
-        this.busRoute = busRoute;
+        this.routeNumber = routeNumber;
     }
 
     public String getBusNumber() {
