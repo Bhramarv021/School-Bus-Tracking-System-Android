@@ -66,6 +66,7 @@ public class SchoolHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentToAddStudentActivity = new Intent(SchoolHomeActivity.this, AddStudentActivity.class);
+                intentToAddStudentActivity.putExtra("userType","Parent");
                 intentToAddStudentActivity.putExtra("schoolId", schoolId);
                 startActivity(intentToAddStudentActivity);
             }

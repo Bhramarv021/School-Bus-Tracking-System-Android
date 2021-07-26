@@ -99,7 +99,7 @@ public class BusAttendantActivity extends AppCompatActivity {
         attendantEmail = intent.getStringExtra("attendantsLoginId");
         Log.d(TAG, "School id through intent is : " + schoolId + " Attendant login id is : " + attendantEmail);
 
-        makeAttendance = findViewById(R.id.btnMarkAttendance);
+//        makeAttendance = findViewById(R.id.btnMarkAttendance);
         showRoute = findViewById(R.id.btnShowRoute);
 
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.attendantMapsFragment);

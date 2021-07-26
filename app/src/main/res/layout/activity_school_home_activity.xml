@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/student_background_2"
+    android:background="@drawable/tryimg"
     tools:context=".SchoolHomeActivity">
 
     <TextView
@@ -12,6 +12,7 @@
         android:layout_height="80dp"
         android:layout_margin="10dp"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="Welcome"
         android:textAllCaps="true"
         android:textSize="40sp"
@@ -164,7 +165,7 @@
         android:text="SIGN OUT"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -174,3 +175,5 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    android:background="@drawable/student_background_2"-->
