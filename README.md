@@ -1,4 +1,30 @@
 # School-Bus-Tracking-System-Android
+Parents track the location of bus so that they can track their child live location and estimate time to reach the destination (School / Home),
+- Easy for school to maintain school bus students data, bus data and bus attendants data.
+- Bus attendant can see route and students pick/drop point.
+
+## IDE Used :
+Android Studio
+
+## Technologe Stack : 
+- Language - Java, XML
+- Database - Firebase 
+- Services - GoogleMaps API
+
+## Problem Statement
+Student safety is a major concern for parents and schools alike, both inside school premises and while students are commuting to and from school. Currently there is no way for a parent to know where their child is except to contact the bus driver or teachers present in the bus.
+
+- No way for parents to keep track of their child while they are commuting in school bus.
+- No information available to parents in case of delay.
+
+## Out Solution
+An application is to be built which can solve the following problems:-
+
+- Tracking the position of school bus so that parents can check their child’s whereabouts.
+- Easier management for school bus routs for school management.
+
+## Program Data Flow
+![image](https://user-images.githubusercontent.com/56185636/140637434-dbd9d0c5-24d7-4597-8326-cee6f5f9ca86.png)
 
 
 ## Project SnapShots
